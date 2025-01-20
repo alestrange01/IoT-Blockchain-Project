@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blocks</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="stylesheet" href="blocks.css">
+</head>
+<body>
+    <div class="container">
+        <div class="container">
+            <header>
+                <div class="header-content">
+                    <a href="../dashboard/dashboard.html" class="btn-home">Torna alla Dashboard</a>
+                    <h1>Blockstream Mempool</h1>
+                </div>
+            </header>
+
+        <main class="content">
+            <section class="blocks-section">
+                <h2>Ultimi Blocchi</h2>
+                <table id="blocks-table">
+                    <thead>
+                        <tr>
+                            <th>Altezza</th>
+                            <th>Data</th>
+                            <th>Transazioni</th>
+                            <th>Dimensione (KB)</th>
+                            <th>Peso (kWU)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+                <div class="button-container">
+                    <button id="expand-table">Carica Altri Blocchi</button>
+                <div id="spinner-overlay" class="spinner-overlay">
+                    <div class="spinner"></div>
+                </div>
+                </div>                
+            </section>
+        </main>
+    </div>
+
+    <script src="blocks.js"></script>
+</body>
+</html>
