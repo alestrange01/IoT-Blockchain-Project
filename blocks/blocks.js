@@ -30,7 +30,7 @@ function addBlocksToTable(blocks) {
     blocks.forEach(block => {
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td>${block.height}</td>
+            <td><a href="./block-details.html?id=${block.id}" class="block-link">${block.height}</a></td>
             <td>${new Date(block.timestamp * 1000).toLocaleString()}</td>
             <td>${block.tx_count}</td>
             <td>${(block.size / 1000).toFixed(3)}</td>
@@ -42,6 +42,7 @@ function addBlocksToTable(blocks) {
         lastBlockHeight = blocks[blocks.length - 1].height;
     }
 }
+
 
 document.getElementById('expand-table').addEventListener('click', async () => {
     if (lastBlockHeight !== null) {
