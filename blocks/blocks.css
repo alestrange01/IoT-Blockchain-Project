@@ -190,3 +190,13 @@ button:active {
 .clickable-row:hover {
     background-color: #3498db;
 }
+
+.prevblock-link {
+    color: #e0e0e0;
+    text-decoration: underline;
+}
+
+.prevblock-link:hover {
+    text-decoration: underline;
+    color: #1abc9c;
+}

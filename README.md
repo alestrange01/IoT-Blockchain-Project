@@ -46,7 +46,7 @@ Se un utente seleziona un blocco, viene portato alla pagina del dettaglio, che m
 - La dimensione e il peso del blocco
 - Il Merkle Root
 - Il nonce utilizzato
-- Il hash del blocco precedente
+- Il hash del blocco precedente: se cliccato porta al dettaglio del blocco.
 
 Inoltre è possibile cliccare sull'hash del blocco precedente per visualizzarlo.
 
@@ -79,7 +79,7 @@ Ogni transazione all'interno di un blocco è anch'essa cliccabile e porta alla p
 
 ### Blocchi
 
-Un **blocco** nella blockchain è una struttura dati che contiene un insieme di transazioni, un nonce e l'hash del blocco precedente. Ogni blocco è identificato univocamente tramite un hash. I blocchi sono concatenati in ordine cronologico, con ogni blocco che contiene il **hash del blocco precedente**, creando una catena immutabile. I blocchi sono validati dai **miner**, i quali risolvono complessi problemi computazionali per aggiungere nuovi blocchi alla blockchain.
+Un **blocco** nella blockchain è una struttura dati che contiene un insieme di transazioni, un nonce e l'hash del blocco precedente. Ogni blocco è identificato univocamente tramite un hash. I blocchi sono concatenati in ordine cronologico, con ogni blocco che contiene il **hash del blocco precedente**, creando una catena immutabile. I blocchi sono creati dai **miner** e validati dai **nodi**.
 
 ### Mempool
 
@@ -87,11 +87,11 @@ La **mempool** (memory pool) è una zona di memorizzazione temporanea dove vengo
 
 ### Nodi
 
-I **nodi** sono computer che partecipano alla rete blockchain. Ogni nodo mantiene una copia della blockchain e valida le transazioni.
+I **nodi** sono dispositivi (computer, server o sistemi embedded) che partecipano alla rete blockchain. Ogni nodo mantiene una copia della blockchain, valida le transazioni ricevute e verifica la correttezza dei blocchi proposti dai miner e propaga le informazioni ad altri nodi. I nodi lavorano insieme per mantenere la rete decentralizzata.
 
 ### Miners
 
-I **miners** sono i nodi che partecipano alla creazione dei blocchi. I miner risolvono complessi problemi crittografici (proof-of-work) per aggiungere nuovi blocchi alla blockchain. Per questo lavoro, i miner ricevono una ricompensa in bitcoin. La difficoltà della rete è adattata periodicamente per mantenere un intervallo costante tra l'aggiunta di un blocco e l'altro.
+I **miners** sono i nodi che partecipano alla creazione dei blocchi. I miner risolvono complessi problemi crittografici (proof-of-work) per aggiungere nuovi blocchi alla blockchain. Per questo lavoro, i miner ricevono una ricompensa composta da block reward (che diminuisce nel tempo tramite l'halving) e commissioni. La difficoltà del PoW è adattata periodicamente dalla rete per mantenere un intervallo costante di circa 10 minuti tra l'aggiunta di un blocco e l'altro.
 
 ---
 
@@ -101,19 +101,18 @@ I **miners** sono i nodi che partecipano alla creazione dei blocchi. I miner ris
 
 Quando si visualizza il dettaglio di un blocco, si osservano i seguenti campi:
 
-- **ID del Blocco**: L'ID univoco del blocco, generato tramite un algoritmo hash.
 - **Altezza**: La posizione del blocco nella blockchain.
-- **Hash del Blocco Precedente**: L'hash del blocco precedente, che consente di costruire la catena dei blocchi.
+- **ID del Blocco**: L'ID univoco del blocco, generato tramite un algoritmo hash.
 - **Timestamp**: Il momento in cui il blocco è stato creato.
-- **Merkle Root**: Un hash che rappresenta tutte le transazioni incluse nel blocco.
 - **Numero di Transazioni**: Il numero totale di transazioni incluse in quel blocco.
 - **Dimensione**: La dimensione totale del blocco in byte.
 - **Peso**: Il peso del blocco, che tiene conto dei dati compressi e non compressi.
+- **Merkle Root**: Un hash che rappresenta tutte le transazioni incluse nel blocco.
 - **Nonce**: Il numero che viene modificato durante il processo di mining per trovare un hash valido.
+- **Hash del Blocco Precedente**: L'hash del blocco precedente, che consente di costruire la catena dei blocchi.
+- **Tempo Mediano**: Il tempo mediano dei timestamp degli 11 blocchi più recenti rispetto al blocco attuale.
 - **Difficoltà**: La difficoltà richiesta per risolvere il problema di proof-of-work.
 - **Bits**: Una rappresentazione compatta della difficoltà.
-- **Tempo Medio**: Il tempo medio tra la creazione di due blocchi.
-- **Coinbase**: Se il blocco è un blocco di genesi (il primo blocco).
 
 ### Dettagli della Transazione
 

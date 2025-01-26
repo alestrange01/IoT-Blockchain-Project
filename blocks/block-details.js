@@ -38,9 +38,9 @@ function displayBlockDetails(block) {
         <tr><td>Merkle Root</td><td>${block.merkle_root}</td></tr>
         <tr><td>Nonce</td><td>${block.nonce}</td></tr>
         <tr><td>Hash Blocco Precedente</td>
-            <td><a href="block-details.html?id=${block.previousblockhash}">${block.previousblockhash}</a></td>
+            <td><a href="block-details.html?id=${block.previousblockhash}" class="prevblock-link">${block.previousblockhash}</a></td>
         </tr>
-        <tr><td>Tempo Medio</td><td>${new Date(block.mediantime * 1000).toLocaleString()}</td></tr>
+        <tr><td>Tempo Mediano</td><td>${new Date(block.mediantime * 1000).toLocaleString()}</td></tr>
         <tr><td>Difficoltà</td><td>${block.difficulty}</td></tr>
         <tr><td>Bits</td><td>${block.bits}</td></tr>
     `;
