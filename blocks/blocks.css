@@ -200,3 +200,15 @@ button:active {
     text-decoration: underline;
     color: #1abc9c;
 }
+
+.tx-link {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.tx-link:hover {
+    text-decoration: underline;
+    color: #1abc9c;
+}
+

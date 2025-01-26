@@ -47,8 +47,8 @@ Se un utente seleziona un blocco, viene portato alla pagina del dettaglio, che m
 - Il Merkle Root
 - Il nonce utilizzato
 - Il hash del blocco precedente: se cliccato porta al dettaglio del blocco.
+- Lista delle transazioni: Transazioni inserite dentro il blocco e dunque confermate. Se cliccate porta al dettaglio della transazione.
 
-Inoltre è possibile cliccare sull'hash del blocco precedente per visualizzarlo.
 
 ### 3. Visualizzazione delle Transazioni
 
@@ -59,6 +59,9 @@ La pagina "mempool" mostra la lista di tutte le transazioni più recenti present
 Ogni transazione all'interno di un blocco è anch'essa cliccabile e porta alla pagina di dettaglio della transazione, che include informazioni come:
 - ID della transazione
 - Lo stato della transazione (confermata/non confermata)
+   - *Se confermata:*
+      - Blocco Confermato: se cliccato porta al dettaglio del blocco.
+      - Altezza Blocco
 - La data della transazione (se confermata)
 - La commissione pagata
 - La dimensione della transazione
@@ -71,8 +74,10 @@ Ogni transazione all'interno di un blocco è anch'essa cliccabile e porta alla p
 ![Dashboard](./images/dashboard.png)
 ![Blocks](./images/blocks.png)
 ![Block details](./images/block-details.png)
+![Coinbase Transaction details](./images/coinbase-transaction-details.png)
+![Transaction confirmed details](./images/transaction-details1.png)
 ![Mempool](./images/mempool.png)
-![Transaction details](./images/transaction-details.png)
+![Transaction details](./images/transaction-details2.png)
 ---
 
 ## Teoria della Blockchain
@@ -113,6 +118,8 @@ Quando si visualizza il dettaglio di un blocco, si osservano i seguenti campi:
 - **Tempo Mediano**: Il tempo mediano dei timestamp degli 11 blocchi più recenti rispetto al blocco attuale.
 - **Difficoltà**: La difficoltà richiesta per risolvere il problema di proof-of-work.
 - **Bits**: Una rappresentazione compatta della difficoltà.
+- **Lista di Transazioni**: Transazioni inserite dentro il blocco e dunque confermate.  La lista include la coinbase transaction, che assegna la ricompensa del mining al miner, seguita dalle altre transazioni raccolte dalla mempool.
+
 
 ### Dettagli della Transazione
 
@@ -120,7 +127,11 @@ Ogni transazione visualizzata contiene informazioni vitali:
 
 - **Txid (Transaction ID)**: Identificatore univoco della transazione.
 - **Stato della Transazione**: Se la transazione è confermata o non confermata.
+   - *Se confermata:*
+      - **Blocco Confermato**: L'ID del blocco in cui la transazione è stata inclusa.
+      - **Altezza Blocco**: L'altezza del blocco in cui la transazione è stata inclusa.
 - **Data di Transazione**: La data in cui la transazione è stata inclusa nel blocco (se confermata).
+- **Coinbase**: Indica se la transazione è una coinbase (Sì/No).
 - **Commissione**: La commissione pagata per l'inclusione della transazione.
 - **Dimensione**: La dimensione della transazione in byte.
 - **Locktime**: La data o il blocco in cui la transazione diventa valida.

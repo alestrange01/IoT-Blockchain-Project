@@ -46,6 +46,37 @@ function displayBlockDetails(block) {
     `;
 }
 
+async function loadBlockTransactions(blockId) {
+    try {
+        const response = await fetch(`https://blockstream.info/api/block/${blockId}/txs`);
+        if (!response.ok) {
+            throw new Error(`Errore nel recupero delle transazioni del blocco: ${response.status}`);
+        }
+        const transactions = await response.json();
+        displayBlockTransactions(transactions);
+    } catch (error) {
+        console.error('Errore durante il caricamento delle transazioni:', error);
+        const txTable = document.getElementById('block-transactions');
+        txTable.innerHTML = `<p>Errore nel caricamento delle transazioni: ${error.message}</p>`;
+    }
+}
+
+function displayBlockTransactions(transactions) {
+    const txTable = document.querySelector('#block-transactions tbody');
+    if (!txTable) {
+        console.error('Elemento per le transazioni non trovato.');
+        return;
+    }
+    txTable.innerHTML = transactions.map(tx => `
+        <tr>
+            <td><a href="../mempool/transaction-details.html?id=${tx.txid}" class="tx-link">${tx.txid}</a></td>
+            <td>${tx.fee} sat</td>
+            <td>${tx.size} B</td>
+        </tr>
+    `).join('');
+}
+
+
 function showSpinner() {
     const spinnerOverlay = document.getElementById('spinner-overlay');
     if (spinnerOverlay) {
@@ -68,6 +99,7 @@ function hideSpinner() {
 
 if (blockId) {
     loadBlockDetails(blockId);
+    loadBlockTransactions(blockId);
 } else {
     document.getElementById('block-details').innerHTML = '<p>ID del blocco non fornito.</p>';
 }

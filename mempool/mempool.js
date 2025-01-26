@@ -30,9 +30,9 @@ function addTransactionsToTable(transactions) {
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>${tx.txid}</td>
-            <td>${(tx.value).toFixed(3)}</td>
-            <td>${tx.vsize}</td>
-            <td>${tx.fee}</td>
+            <td>${(tx.value/ 100000000).toFixed(8)} BTC</td>
+            <td>${tx.vsize} vB</td>
+            <td>${tx.fee} sat</td>
         `;
         row.addEventListener('click', () => {
             window.location.href = `./transaction-details.html?id=${tx.txid}`;
