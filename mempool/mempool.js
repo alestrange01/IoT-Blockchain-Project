@@ -29,15 +29,18 @@ function addTransactionsToTable(transactions) {
     transactions.forEach(tx => {
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td><a href="./transaction-details.html?id=${tx.txid}" class="tx-link">${tx.txid}</a></td>
+            <td>${tx.txid}</td>
             <td>${(tx.value).toFixed(3)}</td>
             <td>${tx.vsize}</td>
             <td>${tx.fee}</td>
         `;
+        row.addEventListener('click', () => {
+            window.location.href = `./transaction-details.html?id=${tx.txid}`;
+        });
+        row.style.cursor = 'pointer';
         tableBody.appendChild(row);
     });
 }
-
 
 (async function initialize() {
     const transactions = await loadMempoolTransactions();

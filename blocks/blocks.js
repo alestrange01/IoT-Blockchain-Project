@@ -29,8 +29,10 @@ function addBlocksToTable(blocks) {
     const tableBody = document.querySelector('#blocks-table tbody');
     blocks.forEach(block => {
         const row = document.createElement('tr');
+        row.classList.add('clickable-row');
+        row.dataset.blockId = block.id;
         row.innerHTML = `
-            <td><a href="./block-details.html?id=${block.id}" class="block-link">${block.height}</a></td>
+            <td>${block.height}</td>
             <td>${new Date(block.timestamp * 1000).toLocaleString()}</td>
             <td>${block.tx_count}</td>
             <td>${(block.size / 1000).toFixed(3)}</td>
@@ -38,10 +40,19 @@ function addBlocksToTable(blocks) {
         `;
         tableBody.appendChild(row);
     });
+
+    document.querySelectorAll('.clickable-row').forEach(row => {
+        row.addEventListener('click', function () {
+            const blockId = this.dataset.blockId;
+            window.location.href = `./block-details.html?id=${blockId}`;
+        });
+    });
+
     if (blocks.length > 0) {
         lastBlockHeight = blocks[blocks.length - 1].height;
     }
 }
+
 
 
 document.getElementById('expand-table').addEventListener('click', async () => {

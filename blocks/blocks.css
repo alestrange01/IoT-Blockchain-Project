@@ -182,3 +182,11 @@ button:active {
     text-decoration: underline;
     color: #1abc9c;
 }
+
+.clickable-row {
+    cursor: pointer;
+}
+
+.clickable-row:hover {
+    background-color: #3498db;
+}

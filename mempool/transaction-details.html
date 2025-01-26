@@ -9,11 +9,17 @@
 <body>
     <div class="container">
         <header>
-            <a href="mempool.html" class="btn-home">Torna alla Mempool</a>
-            <h1>Dettagli Transazione</h1>
+            <div class="header-content">
+                <a href="mempool.html" class="btn-home">Torna alla Mempool</a>
+                <h1>Dettagli Transazione</h1>
+            </div>
         </header>
         <main id="transaction-details" class="content">
-            <p>Caricamento dei dettagli della transazione...</p>
+            <div id="spinner-overlay" class="spinner-overlay">
+                <div class="spinner"></div>
+            </div>
+            <div id="details-content" style="display: none;">
+            </div>
         </main>
     </div>
     <script src="transaction-details.js"></script>

@@ -7,15 +7,32 @@
     <link rel="stylesheet" href="blocks.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <a href="blocks.html" class="btn-home">Torna alla Lista Blocchi</a>
-            <h1>Dettagli Blocco</h1>
-        </header>
-        <main id="block-details" class="content">
-            <p>Caricamento dei dettagli del blocco...</p>
-        </main>
-    </div>
-    <script src="block-details.js"></script>
+    <body>
+        <div class="container">
+            <header>
+                <div class="header-content">
+                    <a href="blocks.html" class="btn-home">Torna alla Lista Blocchi</a>
+                    <h1>Dettagli Blocco</h1>
+                </div>
+            </header>
+            <main id="block-details" class="content">
+                <table id="block-details-table">
+                    <thead>
+                        <tr>
+                            <th>Proprietà</th>
+                            <th>Valore</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </main>
+            <div id="spinner-overlay" class="spinner-overlay">
+                <div class="spinner"></div>
+            </div>
+        </div>
+        <script src="block-details.js"></script>
+    </body>
+    
 </body>
 </html>
