@@ -148,3 +148,48 @@ Il progetto si basa su concetti fondamentali della blockchain, come il proof-of-
 
 ---
 
+## 🚀 Istruzioni per il Deployment
+
+### 📂 Struttura del Progetto
+Il progetto è composto da file **HTML, CSS e JavaScript** lato client. I principali file sono:
+
+- `dashboard.html` → Pagina principale.
+- `blocks.html` → Visualizzazione dei blocchi.
+- `mempool.html` → Mostra le transazioni non confermate in mempool.
+- `blocks-details.html` → Visualizzazione delle informazioni dei blocchi.
+- `transaction-details.html` → Visualizzazione delle informazioni delle transazioni.
+
+### 🔧 Avvio del Progetto
+Per scaricare il progetto dal repository GitHub, eseguire il seguente comando:
+
+```bash
+ git clone https://github.com/rfromeofrancesco/IoT-Project.git
+```
+
+Oppure scaricare manualmente il progetto da [GitHub](https://github.com/rfromeofrancesco/IoT-Project).
+
+Essendo un progetto basato su HTML, CSS e JavaScript, non è necessario installare dipendenze. Per avviare il progetto abbiamo due modi:
+
+#### **Opzione 1: Aprire direttamente nel browser**
+1. Aprire `dashboard/dashboard.html` direttamente in un browser **(Chrome, Firefox, Edge, etc.)**.
+
+#### **Opzione 2: Avviare un server locale**
+1. Aprire il terminale ed eseguire i seguenti comandi:
+   ```bash
+   cd IoT-Project
+   python3 -m http.server 8000
+   ```
+2. Aprire nel browser:
+   ```
+   http://localhost:8000/dashboard/dashboard.html
+   ```
+
+### 🌍 API utilizzate
+Il progetto utilizza l'API di [Blockstream](https://blockstream.info/) per recuperare i dati della blockchain. Gli endpoint usati includono:
+
+- **Blocchi:** `https://blockstream.info/api/block/{block_id}`
+- **Transazioni:** `https://blockstream.info/api/tx/{tx_id}`
+- **Transazioni del bocco:** `https://blockstream.info/api/block/{block_id}/txs`
+- **Mempool:** `https://blockstream.info/api/mempool/recent`
+
+---
