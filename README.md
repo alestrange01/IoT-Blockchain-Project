@@ -157,10 +157,10 @@ Il progetto è composto da file **HTML, CSS e JavaScript** lato client. I princi
 Per scaricare il progetto dal repository GitHub, eseguire il seguente comando:
 
 ```bash
- git clone https://github.com/rfromeofrancesco/IoT-Project.git
+ git clone https://github.com/alestrange01/IoT-Blockchain-Project.git
 ```
 
-Oppure scaricare manualmente il progetto da [GitHub](https://github.com/rfromeofrancesco/IoT-Project).
+Oppure scaricare manualmente il progetto da [GitHub](https://github.com/alestrange01/IoT-Blockchain-Project).
 
 Essendo un progetto basato su HTML, CSS e JavaScript, non è necessario installare dipendenze. Per avviare il progetto abbiamo due modi:
 
