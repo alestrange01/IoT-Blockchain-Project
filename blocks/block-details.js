@@ -1,6 +1,9 @@
 const apiUrl = 'https://blockstream.info/api/block/';
 const params = new URLSearchParams(window.location.search);
 const blockId = params.get('id');
+let startIndex = 0;
+const txPerPage = 25;
+let totalTxCount = 0;
 
 async function loadBlockDetails(blockId) {
     try {
@@ -13,7 +16,9 @@ async function loadBlockDetails(blockId) {
             throw new Error(`Errore nel recupero del blocco: ${response.status}`);
         }
         const block = await response.json();
+        totalTxCount = block.tx_count;
         displayBlockDetails(block);
+        updateTxCountDisplay();
     } catch (error) {
         console.error('Errore:', error);
         document.getElementById('block-details').innerHTML = `<p>Errore: ${error.message}</p>`;
@@ -46,14 +51,26 @@ function displayBlockDetails(block) {
     `;
 }
 
-async function loadBlockTransactions(blockId) {
+async function loadBlockTransactions(blockId, start) {
     try {
-        const response = await fetch(`https://blockstream.info/api/block/${blockId}/txs`);
+        const loadMoreButton = document.getElementById('load-more-txs');
+        if (loadMoreButton) {
+            loadMoreButton.disabled = true;
+        }
+        const response = await fetch(`${apiUrl}${blockId}/txs/${start}`);
         if (!response.ok) {
             throw new Error(`Errore nel recupero delle transazioni del blocco: ${response.status}`);
         }
         const transactions = await response.json();
         displayBlockTransactions(transactions);
+        startIndex += transactions.length;
+        updateTxCountDisplay();
+        
+        if (startIndex >= totalTxCount || totalTxCount <= txPerPage) {
+            document.getElementById('load-more-txs').style.display = 'none';
+        } else {
+            loadMoreButton.disabled = false; 
+        }
     } catch (error) {
         console.error('Errore durante il caricamento delle transazioni:', error);
         const txTable = document.getElementById('block-transactions');
@@ -67,13 +84,20 @@ function displayBlockTransactions(transactions) {
         console.error('Elemento per le transazioni non trovato.');
         return;
     }
-    txTable.innerHTML = transactions.map(tx => `
+    txTable.innerHTML += transactions.map(tx => `
         <tr>
             <td><a href="../mempool/transaction-details.html?id=${tx.txid}" class="tx-link">${tx.txid}</a></td>
             <td>${tx.fee} sat</td>
             <td>${tx.size} B</td>
         </tr>
     `).join('');
+}
+
+function updateTxCountDisplay() {
+    const txCountElement = document.getElementById('tx-count');
+    if (txCountElement) {
+        txCountElement.textContent = `(${Math.min(startIndex, totalTxCount)} di ${totalTxCount})`;
+    }
 }
 
 
@@ -99,7 +123,11 @@ function hideSpinner() {
 
 if (blockId) {
     loadBlockDetails(blockId);
-    loadBlockTransactions(blockId);
+    loadBlockTransactions(blockId, startIndex);
 } else {
     document.getElementById('block-details').innerHTML = '<p>ID del blocco non fornito.</p>';
 }
+
+document.getElementById('load-more-txs').addEventListener('click', () => {
+    loadBlockTransactions(blockId, startIndex);
+});
