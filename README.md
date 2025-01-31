@@ -13,7 +13,9 @@
 5. [Dettagli dei Blocchi e delle Transazioni](#dettagli-dei-blocchi-e-delle-transazioni)
    - [Dettagli del Blocco](#dettagli-del-blocco)
    - [Dettagli della Transazione](#dettagli-della-transazione)
-6. [Conclusioni](#conclusioni)
+6. [Istruzioni per il Deployment](#istruzioni-per-il-deployment)
+7. [Conclusioni](#conclusioni)
+
 
 ---
 
@@ -140,15 +142,7 @@ Ogni transazione visualizzata contiene informazioni vitali:
 
 ---
 
-## Conclusioni
-
-Il progetto **Blockchain Explorer** è uno strumento utile per comprendere in dettaglio la struttura e il funzionamento della blockchain di Bitcoin. L'interfaccia utente fornisce una rappresentazione chiara dei vari componenti della blockchain e delle transazioni, permettendo agli utenti di esplorare come i blocchi vengono formati, come le transazioni vengono validate e come i miners interagiscono con la rete per aggiungere nuovi blocchi.
-
-Il progetto si basa su concetti fondamentali della blockchain, come il proof-of-work, la mempool, e la validazione delle transazioni. Attraverso l'esplorazione dei dati, gli utenti possono ottenere una comprensione più profonda del funzionamento della rete Bitcoin e delle dinamiche che ne permettono il funzionamento sicuro e decentralizzato.
-
----
-
-## 🚀 Istruzioni per il Deployment
+## Istruzioni per il Deployment
 
 ### 📂 Struttura del Progetto
 Il progetto è composto da file **HTML, CSS e JavaScript** lato client. I principali file sono:
@@ -191,5 +185,13 @@ Il progetto utilizza l'API di [Blockstream](https://blockstream.info/) per recup
 - **Transazioni:** `https://blockstream.info/api/tx/{tx_id}`
 - **Transazioni del bocco:** `https://blockstream.info/api/block/{block_id}/txs`
 - **Mempool:** `https://blockstream.info/api/mempool/recent`
+
+---
+
+## Conclusioni
+
+Il progetto **Blockchain Explorer** è uno strumento utile per comprendere in dettaglio la struttura e il funzionamento della blockchain di Bitcoin. L'interfaccia utente fornisce una rappresentazione chiara dei vari componenti della blockchain e delle transazioni, permettendo agli utenti di esplorare come i blocchi vengono formati, come le transazioni vengono validate e come i miners interagiscono con la rete per aggiungere nuovi blocchi.
+
+Il progetto si basa su concetti fondamentali della blockchain, come il proof-of-work, la mempool, e la validazione delle transazioni. Attraverso l'esplorazione dei dati, gli utenti possono ottenere una comprensione più profonda del funzionamento della rete Bitcoin e delle dinamiche che ne permettono il funzionamento sicuro e decentralizzato.
 
 ---
